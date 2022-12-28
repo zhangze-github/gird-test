@@ -7,7 +7,17 @@
                  :vertical-compact="true"
                  :use-css-transforms="true"
     >
-        <grid-item v-for="item in layout"
+    <grid-item v-for="item in layout"
+                   :static="item.static"
+                   :x="item.x"
+                   :y="item.y"
+                   :w="item.w"
+                   :h="item.h"
+                   :i="item.i"
+        >
+            <!-- <iframe src="https://juejin.cn" frameborder="0" class="iframe"></iframe> -->
+        </grid-item>
+        <!-- <grid-item v-for="item in layout"
                    :static="item.static"
                    :x="item.x"
                    :y="item.y"
@@ -16,7 +26,7 @@
                    :i="item.i"
         >
             <span class="text">{{itemTitle(item)}}</span>
-        </grid-item>
+        </grid-item> -->
     </grid-layout>
 </template>
 
@@ -31,8 +41,8 @@ export default {
     data() {
         return {
             layout: [
-                {"x":0,"y":0,"w":2,"h":2,"i":"0", static: false},
-                {"x":2,"y":0,"w":2,"h":4,"i":"1", static: true},
+                // {"x":0,"y":0,"w":6,"h":6,"i":"0", static: false},
+                // {"x":2,"y":0,"w":2,"h":4,"i":"1", static: true},
                 {"x":4,"y":0,"w":2,"h":5,"i":"2", static: false},
                 {"x":6,"y":0,"w":2,"h":3,"i":"3", static: false},
                 {"x":8,"y":0,"w":2,"h":3,"i":"4", static: false},
@@ -40,17 +50,17 @@ export default {
                 {"x":0,"y":5,"w":2,"h":5,"i":"6", static: false},
                 {"x":2,"y":5,"w":2,"h":5,"i":"7", static: false},
                 {"x":4,"y":5,"w":2,"h":5,"i":"8", static: false},
-                {"x":6,"y":3,"w":2,"h":4,"i":"9", static: true},
-                {"x":8,"y":4,"w":2,"h":4,"i":"10", static: false},
-                {"x":10,"y":4,"w":2,"h":4,"i":"11", static: false},
-                {"x":0,"y":10,"w":2,"h":5,"i":"12", static: false},
-                {"x":2,"y":10,"w":2,"h":5,"i":"13", static: false},
-                {"x":4,"y":8,"w":2,"h":4,"i":"14", static: false},
-                {"x":6,"y":8,"w":2,"h":4,"i":"15", static: false},
-                {"x":8,"y":10,"w":2,"h":5,"i":"16", static: false},
-                {"x":10,"y":4,"w":2,"h":2,"i":"17", static: false},
-                {"x":0,"y":9,"w":2,"h":3,"i":"18", static: false},
-                {"x":2,"y":6,"w":2,"h":2,"i":"19", static: false}
+                // {"x":6,"y":3,"w":2,"h":4,"i":"9", static: true},
+                // {"x":8,"y":4,"w":2,"h":4,"i":"10", static: false},
+                // {"x":10,"y":4,"w":2,"h":4,"i":"11", static: false},
+                // {"x":0,"y":10,"w":2,"h":5,"i":"12", static: false},
+                // {"x":2,"y":10,"w":2,"h":5,"i":"13", static: false},
+                // {"x":4,"y":8,"w":2,"h":4,"i":"14", static: false},
+                // {"x":6,"y":8,"w":2,"h":4,"i":"15", static: false},
+                // {"x":8,"y":10,"w":2,"h":5,"i":"16", static: false},
+                // {"x":10,"y":4,"w":2,"h":2,"i":"17", static: false},
+                // {"x":0,"y":9,"w":2,"h":3,"i":"18", static: false},
+                // {"x":2,"y":6,"w":2,"h":2,"i":"19", static: false}
             ],
             draggable: true,
             resizable: true,
@@ -70,13 +80,20 @@ export default {
 </script>
 
 <style scoped>
+
+iframe{
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 6px;
+}
 .vue-grid-layout {
     background: #eee;
 }
 
 .vue-grid-item:not(.vue-grid-placeholder) {
     background: #ccc;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .vue-grid-item .resizing {
